@@ -12,236 +12,226 @@
   <body>
     <main>
       <section>
-        <h1>Action API Demo</h1>
+        <h1>Action API 演示</h1>
         <p>
           Before experimenting with these APIs, we recommend you pin the
           extension's action button to your toolbar in order to make it easier
           to see the changes.
+          在体验这些API之前，我们建议您将扩展的操作按钮固定到工具栏，以便更容易看到变化。
         </p>
         <img src="../images/pin-action.png" />
       </section>
 
       <section id="toggle-state">
-        <h2>enable / disable</h2>
-
+        <h2>enable / disable 启用/禁用</h2>
         <p>
-          Clicking the below <em>toggle enabled state</em> button will enable or
-          disable the extensions' action button in Chrome's toolbar and
-          extensions menu.
+          点击下面的<em>切换启用状态</em>按钮将启用或禁用Chrome工具栏和扩展菜单中的扩展操作按钮。
         </p>
 
+
         <p>
-          When disabled, clicking the action will not open a popup or trigger
-          <a
-            href="https://developer.chrome.com/docs/extensions/reference/action/#event-onClicked"
-            ><code>action.onClicked</code></a
-          >
-          events.
+          禁用时，点击操作按钮不会打开弹出窗口或触发<a
+                href="https://developer.chrome.com/docs/extensions/reference/action/#event-onClicked"
+        ><code>action.onClicked</code></a
+        >事件。
         </p>
 
-        <button id="toggle-state-button">toggle enabled state</button>
+        <button id="toggle-state-button">toggle enabled state切换启用状态</button>
 
         <div class="flex">
           <figure>
             <img src="../images/action-enabled.png" />
-            <figcaption>Action enabled</figcaption>
+            <figcaption>Action enabled 操作按钮已启用</figcaption>
           </figure>
           <figure>
             <img src="../images/action-disabled.png" />
-            <figcaption>Action disabled</figcaption>
+            <figcaption>Action disabled 操作按钮已禁用</figcaption>
           </figure>
         </div>
       </section>
 
       <section id="popup">
-        <h2>Popup</h2>
+        <h2>Popup 弹出窗口</h2>
 
         <p>
-          This demo's <a href="manifest.json">manifest.json</a> file sets the
-          value of <code>action.default_popup</code> to
-          <code>popups/popup.html</code>. We can change that behavior at runtime
-          using
+          本演示的<a href="manifest.json">manifest.json</a>文件将
+          <code>action.default_popup</code>的值设置为
+          <code>popups/popup.html</code>。我们可以使用
           <a
-            href="https://developer.chrome.com/docs/extensions/reference/action/#method-setPopup"
-            ><code>action.setPopup</code></a
-          >.
+                  href="https://developer.chrome.com/docs/extensions/reference/action/#method-setPopup"
+          ><code>action.setPopup</code></a
+          >
+          在运行时更改该行为。
         </p>
 
         <label>
-          Change popup page<br />
+          更改弹出页面<br />
           <select id="popup-options">
-            <option value="/popups/popup.html">Hello world (default)</option>
+            <option value="/popups/popup.html">Hello world (默认)</option>
             <option value="/popups/a.html">A</option>
             <option value="/popups/b.html">B</option>
-            <option value="">onClicked handler</option>
+            <option value="">onClicked 处理程序</option>
           </select>
         </label>
 
         <div class="spaced">
           <label>
-            Current popup value
+            Current popup value 当前弹出窗口值
             <input type="text" id="current-popup-value" disabled />
           </label>
         </div>
 
         <p>
-          Register a handler to change how the action button behaves. Once
-          changed, clicking the action will open your new favorite website.
+          注册一个处理程序来更改操作按钮的行为。更改后，点击操作按钮将打开您最喜欢的新网站。
         </p>
-        <button id="onclicked-button">Change action click behavior</button>
-        <button id="onclicked-reset-button">reset</button>
+        <button id="onclicked-button">更改点击行为</button>
+        <button id="onclicked-reset-button">重置</button>
       </section>
 
       <!-- badge -->
 
       <section id="badge-text">
-        <h2>Badge Text</h2>
+        <h2>Badge Text 徽章文本</h2>
 
         <p>
-          The action's badge text is a text overlay with a solid background
-          color. This provides a passive UI surface to share information with
-          the user. It is most commonly used to show a notification count or
-          number of actions taken on the current page.
+          操作按钮的徽章文本是具有纯色背景的文本覆盖层。这提供了一个被动的UI界面与用户共享信息。它最常用于显示通知计数或当前页面上采取的操作数量。
         </p>
 
         <div class="spaced">
           <label>
-            Enter badge text (live update)<br />
+            输入徽章文本(实时更新)<br />
             <input type="text" id="badge-text-input" />
           </label>
         </div>
 
         <div class="flex">
           <label class="full-width">
-            Current badge text
+            当前徽章文本
             <input type="text" id="current-badge-text" disabled />
           </label>
-          <button id="clear-badge-button">clear badge text</button>
+          <button id="clear-badge-button">清除徽章文本</button>
         </div>
 
         <div class="spaced">
           <button id="set-badge-background-color-button">
-            Randomize badge background color
+            随机化徽章背景颜色
           </button>
         </div>
 
         <div class="flex">
           <label class="full-width">
-            Current badge color
+            当前徽章颜色
             <input type="text" id="current-badge-bg-color" disabled />
           </label>
           <button id="reset-badge-background-color-button">
-            Reset badge color
+            重置徽章颜色
           </button>
         </div>
       </section>
       <!-- Badge Text Color !-->
       <section>
-        <h2>Badge Text Color</h2>
+        <h2>徽章文本颜色</h2>
         <p>
-          The
           <a
             href="https://developer.chrome.com/docs/extensions/reference/action/#method-setBadgeTextColor"
             ><code>action.setBadgeTextColor</code></a
           >
-          method allows you to change the color of the badge text.
+          方法允许您更改徽章文本的颜色。
         </p>
 
         <div class="spaced">
           <button id="set-badge-txt-color-button">
-            Randomize badge text color
+            随机化徽章文本颜色
           </button>
         </div>
 
         <p>
-          The
           <a
             href="https://developer.chrome.com/docs/extensions/reference/action/#method-getBadgeTextColor"
             ><code>action.getBadgeTextColor</code></a
           >
-          method allows you to read the current color of the badge text.
+          方法允许您读取徽章文本的当前颜色。
         </p>
 
         <div class="flex">
           <label class="full-width">
-            Current badge text color
+            当前徽章文本颜色
             <input type="text" id="current-badge-txt-color" disabled />
           </label>
           <button id="reset-badge-txt-color-button">
-            Reset badge text color
+            重置徽章文本颜色
           </button>
         </div>
       </section>
 
       <!-- badge - icon -->
+      <!-- 徽章 - 图标 -->
 
       <section id="setIcon">
-        <h2>Icon</h2>
+        <h2>图标</h2>
 
         <p>
-          The
           <a
             href="https://developer.chrome.com/docs/extensions/reference/action/#method-setIcon"
             ><code>action.setIcon</code></a
           >
-          method allows you to change the action button's icon by either
-          providing the path of an image or the raw
+          方法允许您通过提供图像路径或原始
           <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData"
             >ImageData</a
-          >.
+          >
+          来更改操作按钮的图标。
         </p>
 
-        <button id="set-icon-button">set a new action icon</button>
-        <button id="reset-icon-button">reset action icon</button>
+        <button id="set-icon-button">设置新操作图标</button>
+        <button id="reset-icon-button">重置操作图标</button>
       </section>
 
       <!-- badge - hover text (title) -->
 
       <section id="title">
-        <h2>Hover Text</h2>
+        <h2>悬停文本</h2>
 
         <p>
-          The action's title is visible when mousing over the extension's action
-          button.
+          当鼠标悬停在扩展操作按钮上时，操作的标题可见。
         </p>
 
         <p>
-          This value can be read and changed at runtime using the
+          可以使用
           <a
             href="https://developer.chrome.com/docs/extensions/reference/action/#method-getTitle"
             ><code>action.getTitle</code></a
           >
-          and
+          和
           <a
             href="https://developer.chrome.com/docs/extensions/reference/action/#method-setTitle"
             ><code>action.setTitle</code></a
           >
-          methods, respectively.
+          方法分别在运行时读取和更改此值。
         </p>
 
         <div class="spaced">
           <label>
-            Enter a new title (debounced)<br />
+            输入新标题(防抖)<br />
             <input type="text" id="title-input" />
           </label>
         </div>
 
         <div class="flex">
           <label class="full-width">
-            Current title
+            当前标题
             <input type="text" id="current-title" disabled />
           </label>
-          <button id="reset-title-button">reset title</button>
+          <button id="reset-title-button">重置标题</button>
         </div>
 
         <div class="flex">
           <figure>
             <img src="../images/title-no-hover.png" />
-            <figcaption>Default appearance</figcaption>
+            <figcaption>默认外观</figcaption>
           </figure>
           <figure>
             <img src="../images/title-hover.png" />
-            <figcaption>Title appears on hover</figcaption>
+            <figcaption>悬停时显示标题</figcaption>
           </figure>
         </div>
       </section>

@@ -1,14 +1,12 @@
 # chrome.alarms
 
-This sample demonstrates the `chrome.alarms` API by allowing the user to set alarms using an extension page.
+此示例通过允许用户使用扩展页面设置闹钟，演示了 chrome.alarms API 的功能。
+## Overview (概述)
 
-## Overview
+该扩展会调用 chrome.alarms.create() 方法来设置一个初始闹钟，该闹钟会显示在扩展页面上。用户可以通过输入来设置更多闹钟
 
-The extension calls `chrome.alarms.create()` to set an initial alarm that is displayed on the extension page. More alarms can be set with user input.
-
-## Running this extension
-
-1. Clone this repository.
-2. Load this directory in Chrome as an [unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked).
-3. Pin the extension to the taskbar to access the action button.
-4. Open the extension popup by clicking the action button and interact with the UI.
+## Running this extension (运行此扩展)
+1. 克隆此存储库。
+2. 在 Chrome 中加载此目录作为[未打包扩展](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked)。
+3. 将扩展固定到任务栏，以便访问操作按钮。
+4. 点击操作按钮打开扩展弹出窗口，并与 UI 进行交互。
